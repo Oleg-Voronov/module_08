@@ -29,30 +29,17 @@ class Car:
         else:
             return True
 
+def New_Car(model,vin,number):
+    try:
+        car_ = Car(model,vin,number)
+    except IncorrectVinNumber as exc:
+        print(exc.message)
+    except IncorrectCarNumbers as exc:
+        print(exc.message)
+    else:
+        print(f'{car_.model} успешно создан')
+        return car_
 
-try:
-    first = Car('Model1', 1000000, 'f123dj')
-except IncorrectVinNumber as exc:
-    print(exc.message)
-except IncorrectCarNumbers as exc:
-    print(exc.message)
-else:
-    print(f'{first.model} успешно создан')
-
-try:
-    second = Car('Model2', 300, 'т001тр')
-except IncorrectVinNumber as exc:
-    print(exc.message)
-except IncorrectCarNumbers as exc:
-    print(exc.message)
-else:
-    print(f'{second.model} успешно создан')
-
-try:
-    third = Car('Model3', 2020202, 'нет номера')
-except IncorrectVinNumber as exc:
-    print(exc.message)
-except IncorrectCarNumbers as exc:
-    print(exc.message)
-else:
-    print(f'{third.model} успешно создан')
+first = New_Car('Model1', 1000000, 'f123dj')
+second = New_Car('Model2', 300, 'т001тр')
+third = New_Car('Model3', 2020202, 'нет номера')
